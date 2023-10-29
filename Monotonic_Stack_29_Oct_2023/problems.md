@@ -1,6 +1,6 @@
 ## Solve the following problems to get a better handle on monotonic stack
 
-Day 1 -Implement monotonic stack (refer to monotonic_stack.py)
+Day 1 - Implement monotonic stack (refer to monotonic_stack.py)
 
 Day 2 - https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/
 
