@@ -8,7 +8,17 @@ Day 2 - https://leetcode.com/problems/next-greater-element-i/
 
 Day 3 - https://leetcode.com/problems/daily-temperatures/
 
+Day 4 - https://leetcode.com/problems/remove-k-digits/
+
+Day 5 - https://leetcode.com/problems/next-greater-element-ii/
+
 References:
+
+Solution to daily temperatures by Neetcode - https://www.youtube.com/watch?v=cTBiBSnjO3c
+
+
+
+
 
 
 
