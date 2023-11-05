@@ -1,14 +1,13 @@
-package main
-
 func finalPrices(prices []int) []int {
-    s := make([]int, 0, len(prices))
+    stack := make([]int, 0, len(prices))
 
-    for i, p := range prices {
-        for top := len(s)-1; top >= 0 && prices[s[top]] >= p; top-- {
-            prices[s[top]] -= p
-            s = s[:top]
+    for i, discount := range prices {
+        for len(stack) > 0 && discount <= prices[stack[len(stack)-1]]  {
+            idx := stack[len(stack)-1]
+            prices[idx] -= discount
+            stack = stack[:len(stack)-1]
         }
-        s = append(s, i)
+        stack = append(stack, i)
     }
     return prices
 }
