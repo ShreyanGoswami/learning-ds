@@ -19,14 +19,24 @@ class MonotonicIncreasingStack:
         self.s = [] # use this list for implementing the monotonic stack
 
     def push(self, x):
-        pass
+        if len(self.s) == 0:
+            self.s.append(x)
+        else:
+            while self.peek() > x:
+                if len(self.s) == 0 or self.peek() < x:
+                    break
+                self.pop()
 
+            self.s.append(x)
+        
     def peek(self):
-        pass
+        if self.s:
+            return self.s[-1]
+        return float('-inf')
 
     def pop(self):
-        pass
-
+        return self.s.pop()
+    
     def inspectStack(self):
         return self.s
 
