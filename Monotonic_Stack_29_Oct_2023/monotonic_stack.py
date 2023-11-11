@@ -58,7 +58,7 @@ def test():
     assert [1, 2, 3, 3, 4] == s.inspectStack()
 
     s.push(2)
-    assert [1, 2] == s.inspectStack()
+    assert [1, 2, 2] == s.inspectStack()
 
     s.push(0)
     assert [0] == s.inspectStack()
