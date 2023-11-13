@@ -1,5 +1,5 @@
 1. The counter variable is inspired from the Valid Anagrams problem in leetcode. We discussed how we can use a counter to sort strings in linear time given certain constraints such as every character is lowercase. Here's the code for reference:
-```
+```python
 s = "cccaaabbbddd"
 counter = [0] * 26
 for x in s:
@@ -17,7 +17,7 @@ One can argue thaat we can use a dictionary instead of a counter variable for Va
 2. We discussed about the general structure of sliding window problems and saw a toy problem
 
 Given a list of positive numbers, find the largest sum of subarray of size 4. The solution we discussed
-```
+```python
 def max_sum(input, k=4):
  start = 0
  end = k - 1
