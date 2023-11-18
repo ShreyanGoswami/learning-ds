@@ -1,6 +1,7 @@
 # Bucket Sort
 
 1. The counter variable is inspired from the Valid Anagrams problem in leetcode. We discussed how we can use a counter to sort strings in linear time given certain constraints such as every character is lowercase. Here's the code for reference:
+
 ```python
 s = "cccaaabbbddd"
 counter = [0] * 26
