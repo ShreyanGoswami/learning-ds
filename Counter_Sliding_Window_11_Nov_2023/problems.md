@@ -1,4 +1,7 @@
+# Bucket Sort
+
 1. The counter variable is inspired from the Valid Anagrams problem in leetcode. We discussed how we can use a counter to sort strings in linear time given certain constraints such as every character is lowercase. Here's the code for reference:
+
 ```python
 s = "cccaaabbbddd"
 counter = [0] * 26
@@ -12,12 +15,15 @@ for i in range(26):
 
 print(res)
 ```
-One can argue thaat we can use a dictionary instead of a counter variable for Valid Anagrams. However, it's not possible to substitute the counter variable for a python dictionary. Explain why it's not possible to do so. Hint: rewrite the above code using a dictionary and see the output. 
 
-# 2. The Sliding Window Technique
-2. We discussed about the general structure of sliding window problems and saw a toy problem
+One can argue that we can use a dictionary instead of a counter variable for Valid Anagrams. However, it's not possible to substitute the counter variable for a python dictionary. Explain why it's not possible to do so. Hint: rewrite the above code using a dictionary and see the output. 
 
-Given a list of positive numbers, find the largest sum of subarray of size 4. The solution we discussed
+# The Sliding Window Technique
+
+2. We discussed about the general structure of sliding window problems and saw a toy problem.
+
+Given a list of positive numbers, find the largest sum of subarray of size 4. The solution we discussed -
+
 ```python
 def max_sum(input, k=4):
     start = 0
@@ -59,6 +65,7 @@ def max_sum(input, k):
     return res
 ```
 
+# Leetcode Problems
 
 3. Solve https://leetcode.com/problems/maximum-average-subarray-i/
 4. Solve https://leetcode.com/problems/contains-duplicate-ii/
