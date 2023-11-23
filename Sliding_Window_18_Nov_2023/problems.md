@@ -33,10 +33,14 @@ def substrings(s):
 
 As we have previously discussed, the time complexity of an algorithm is measured in terms of it's input size. If there's any computation in the function that's done irrespective of input size we don't consider it for the time complexity analysis or we say that it takes constant time O(1). For steps that do depend on input size, a basic way to analyze the time complixty is to just count the total number of steps/operation in terms of input size(n). 
 
-For example, say we print all the characters of a string of length n
+For example, say we print all the characters of a string of length n -
 ```python
 def print_chars(s):
-    for c  in s:
+    for c in s:
         print(c)
 ```
-The time complexity of the above function is O(n) since we need to iterate over all n characters in a string. Apply the above logic to count the number of steps in the **substrings** function. Hint: Consider the number of steps in every iteration of the inner for loop
+
+The time complexity of the above function is O(n) since we need to iterate over all n characters in a string. Apply the above logic to count the number of steps in the **substrings** function. Hint: Consider the number of steps in every iteration of the inner for loop.
+
+#### Solution
+
