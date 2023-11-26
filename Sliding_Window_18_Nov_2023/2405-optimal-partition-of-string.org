@@ -73,7 +73,7 @@ class Solution:
         return partitions
 #+end_src
 
-This approach is easier to understand but also slower since hash maps need to call the hash function even for lookups.
+This approach is easier to understand but also slower since hash maps need to call the hash function.
 
 - https://youtu.be/0M_kIqhwbFo?si=w_oZTg87T281ITW7
 - https://youtu.be/BRO7mVIFt08?si=l2HkAx_d9zqc2pI5
