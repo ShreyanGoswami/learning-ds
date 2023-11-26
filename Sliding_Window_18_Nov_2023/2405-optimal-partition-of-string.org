@@ -66,9 +66,14 @@ class Solution:
         p = set()
         partitions = 1
         for c in s:
-            if  c in p:
+            if c in p:
                 partitions += 1
                 p.clear()
             p.add(c)
         return partitions
 #+end_src
+
+This approach is easier to understand but also slower since hash maps need to call the hash function even for lookups.
+
+- https://youtu.be/0M_kIqhwbFo?si=w_oZTg87T281ITW7
+- https://youtu.be/BRO7mVIFt08?si=l2HkAx_d9zqc2pI5

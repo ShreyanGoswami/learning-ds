@@ -1,0 +1,34 @@
+#+title: 1358 All Three Characters
+
+#+begin_src go
+func numberOfSubstrings(s string) int {
+    var counter [3]int
+    start, end := 0, 0
+    substrings, hits := 0, 0
+
+	for end < len(s) {
+		counter[s[end]-'a']++
+
+		for start < end-1 && counter[0] > 0 && counter[1] > 0 && counter[2] > 0 {
+			hits++
+			counter[s[start]-'a']--
+			start++
+		}
+
+		substrings += hits
+		end++
+	}
+
+	return substrings
+}
+
+#+end_src
+
+#+begin_example
+abc                         <- one hit
+abca    bca                 <- two hits
+abcab   bcab    cab         <- three hits
+abcabc  bcabc   cabc    abc <- four hits
+                            ------------
+                            TOTAL 10 HITS
+#+end_example
