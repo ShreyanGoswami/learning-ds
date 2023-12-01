@@ -1,24 +1,24 @@
 Solve the following LC problems
-* https://leetcode.com/problems/longest-substring-without-repeating-characters/
-* https://leetcode.com/problems/maximum-erasure-value/
-* https://leetcode.com/problems/optimal-partition-of-string/
-* https://leetcode.com/problems/count-complete-subarrays-in-an-array/
-* https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/
-* https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
-* https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
+- [ ] https://leetcode.com/problems/longest-substring-without-repeating-characters/
+- [x] https://leetcode.com/problems/maximum-erasure-value/
+- [x] https://leetcode.com/problems/optimal-partition-of-string/
+- [ ] https://leetcode.com/problems/count-complete-subarrays-in-an-array/
+- [x] https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/
+- [x] https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/
+- [x] https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
 
 Watch the following videos on time complexity analysis
-* https://www.youtube.com/watch?v=9TlHvipP5yA 
-* https://www.youtube.com/watch?v=9SgLBjXqwd4
-* https://www.youtube.com/watch?v=p1EnSvS3urU
-* https://www.youtube.com/watch?v=A03oI0znAoc
+- [ ] https://www.youtube.com/watch?v=9TlHvipP5yA 
+- [ ] https://www.youtube.com/watch?v=9SgLBjXqwd4
+- [ ] https://www.youtube.com/watch?v=p1EnSvS3urU
+- [ ] https://www.youtube.com/watch?v=A03oI0znAoc
 
 More LC problems
-* https://leetcode.com/problems/min-stack/
-* https://leetcode.com/problems/sort-colors/
-* https://leetcode.com/problems/decode-string/
-* https://leetcode.com/problems/car-fleet/
-* Optional hard problem - https://leetcode.com/problems/maximal-rectangle/
+- [ ] https://leetcode.com/problems/min-stack/
+- [ ] https://leetcode.com/problems/sort-colors/
+- [ ] https://leetcode.com/problems/decode-string/
+- [ ] https://leetcode.com/problems/car-fleet/
+- [ ] Optional hard problem - https://leetcode.com/problems/maximal-rectangle/
 
 ## Theory problem
 
@@ -38,7 +38,6 @@ For example, say we print all the characters of a string of length n -
 def print_chars(s):
     for c in s:
         print(c)
-print("hello world")
 ```
 
 The time complexity of the above function is O(n) since we need to iterate over all n characters in a string. Apply the above logic to count the number of steps in the **substrings** function. Hint: Consider the number of steps in every iteration of the inner for loop.
