@@ -23,7 +23,7 @@ More LC problems
 ## Theory problem
 
 Till now we haven't formally talked about time complexity. After watching Abdul Bari's videos above I hope you get a better understanding.
-Consider the code we had seen to generate all possible substring
+Consider the code we had seen to generate all possible substring.
 ```python
 def substrings(s):
     for i in range(len(s)):
@@ -38,6 +38,7 @@ For example, say we print all the characters of a string of length n -
 def print_chars(s):
     for c in s:
         print(c)
+print("hello world")
 ```
 
 The time complexity of the above function is O(n) since we need to iterate over all n characters in a string. Apply the above logic to count the number of steps in the **substrings** function. Hint: Consider the number of steps in every iteration of the inner for loop.
