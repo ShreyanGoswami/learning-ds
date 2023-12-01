@@ -1,5 +1,5 @@
 Solve the following LC problems
-- [ ] https://leetcode.com/problems/longest-substring-without-repeating-characters/
+- [x] https://leetcode.com/problems/longest-substring-without-repeating-characters/
 - [x] https://leetcode.com/problems/maximum-erasure-value/
 - [x] https://leetcode.com/problems/optimal-partition-of-string/
 - [ ] https://leetcode.com/problems/count-complete-subarrays-in-an-array/
@@ -43,4 +43,4 @@ def print_chars(s):
 The time complexity of the above function is O(n) since we need to iterate over all n characters in a string. Apply the above logic to count the number of steps in the **substrings** function. Hint: Consider the number of steps in every iteration of the inner for loop.
 
 #### Solution
-
+- [ ] TODO
