@@ -1,0 +1,42 @@
+#+title: Frog
+
+There are N blocks, numbered from 0 to N-1, arranged in a row. A couple of frogs were sitting together on one block when they had a terrible quarrel. Now they want to jump away from one another so that the distance between them will be as large as possible. The distance between blocks numbered J and K where ~J <= k~ , is computed as ~K - J + 1~. the frogs can only jump up, meaning that they can move from one block to another only if the two blocks are adjacent and the second block is one of the same or greater height as the first. what is the longest distance that they can possibly create between each other, if they also choose to sit on the optimal starting block initially?
+
+That given an array blocks consisting of N integers denoting the heights of blocks, returns the longest possible distance that two frogs can make between each other starting from one of the blocks.
+
+Example
+1. Given blocks = [2, 6, 8, 5] the function should return 3. if starting from blocks[0] , the first frog can stay where it is and the second frog can jump to blocks[2](but not to blocks[3])
+2. Given blocks = [1, 5, 5, 2, 6], the function should return 4. If starting from blocks[3], the first frog can jump to blocks[1], but not blocks[0], and the second frog can jump to blocks[4].
+
+Write an efficient algorithm for the following assumptions:
+1. N is an integer within range [2..200,000]
+2. each element of array blocks is an integer within the range [1..1,000,000,000]
+
+#+begin_src python
+def findLongestDistance(blocks):
+    n = len(blocks)
+    max_distance = 0
+
+    for i in range(n):
+        j = i
+        k = i
+
+        # Find the farthest block where the second frog can jump
+        while k < n - 1 and blocks[k + 1] >= blocks[k]:
+            k += 1
+
+        # Find the farthest block where the first frog can jump
+        while j > 0 and blocks[j - 1] >= blocks[j]:
+            j -= 1
+
+        # Calculate the distance between the two farthest blocks
+        distance = k - j + 1
+
+        # Update the maximum distance
+        max_distance = max(max_distance, distance)
+
+    return max_distance
+#+end_src
+
+T.C is ~O(n)~.
+S.C is ~O(1)~.
