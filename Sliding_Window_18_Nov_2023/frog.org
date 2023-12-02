@@ -38,5 +38,5 @@ def findLongestDistance(blocks):
     return max_distance
 #+end_src
 
-T.C is ~O(n)~.
+T.C is ~O(n^2)~.
 S.C is ~O(1)~.
