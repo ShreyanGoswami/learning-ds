@@ -8,13 +8,14 @@ Solve the following LC problems
 - [x] https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
 
 Watch the following videos on time complexity analysis
-- [ ] https://www.youtube.com/watch?v=9TlHvipP5yA 
-- [ ] https://www.youtube.com/watch?v=9SgLBjXqwd4
-- [ ] https://www.youtube.com/watch?v=p1EnSvS3urU
-- [ ] https://www.youtube.com/watch?v=A03oI0znAoc
+- [x] [1.5.1 Time Complexity #1](https://www.youtube.com/watch?v=9TlHvipP5yA)
+- [x] [1.5.2 Time Complexity Example #2](https://www.youtube.com/watch?v=9SgLBjXqwd4)
+- [x] [1.5.3 Time Complexity of While and if #3](https://www.youtube.com/watch?v=p1EnSvS3urU)
+- [x] [1.8.1 Asymptotic Notations Big Oh - Omega - Theta #1](https://www.youtube.com/watch?v=A03oI0znAoc)
+- [x] [1.8.2 Asymptotic Notations - Big Oh - Omega - Theta #2](https://www.youtube.com/watch?v=Nd0XDY-jVHs)
 
 More LC problems
-- [ ] https://leetcode.com/problems/min-stack/
+- [ ] https://leetcode.com/problems/min-stack/ 
 - [ ] https://leetcode.com/problems/sort-colors/
 - [ ] https://leetcode.com/problems/decode-string/
 - [ ] https://leetcode.com/problems/car-fleet/
