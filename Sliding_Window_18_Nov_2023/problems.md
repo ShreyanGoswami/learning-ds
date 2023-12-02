@@ -24,7 +24,9 @@ More LC problems
 ## Theory problem
 
 Till now we haven't formally talked about time complexity. After watching Abdul Bari's videos above I hope you get a better understanding.
+
 Consider the code we had seen to generate all possible substring.
+
 ```python
 def substrings(s):
     for i in range(len(s)):
@@ -32,16 +34,48 @@ def substrings(s):
             print(s[i, j+1])
 ```
 
-As we have previously discussed, the time complexity of an algorithm is measured in terms of it's input size. If there's any computation in the function that's done irrespective of input size we don't consider it for the time complexity analysis or we say that it takes constant time O(1). For steps that do depend on input size, a basic way to analyze the time complixty is to just count the total number of steps/operation in terms of input size(n). 
+As we have previously discussed, the time complexity of an algorithm is measured in terms of it's input size. If there's any computation in the function that's done irrespective of input size we don't consider it for the time complexity analysis or we say that it takes constant time `O(1)`. 
+
+For steps that do depend on input size, a basic way to analyze the time complixty is to just count the total number of steps/operation in terms of input size (n). 
 
 For example, say we print all the characters of a string of length n -
+
 ```python
 def print_chars(s):
     for c in s:
         print(c)
 ```
 
-The time complexity of the above function is O(n) since we need to iterate over all n characters in a string. Apply the above logic to count the number of steps in the **substrings** function. Hint: Consider the number of steps in every iteration of the inner for loop.
+The time complexity of the above function is O(n) since we need to iterate over all n characters in a string. 
+
+Apply the above logic to count the number of steps in the **substrings** function. Hint: Consider the number of steps in every iteration of the inner for loop.
 
 #### Solution
-- [ ] TODO
+
+```
+string  |enumeration             | substrings
+---------------------------------------------
+a       |a                       |        1
+--------|------------------------|-----------
+ab      |a, ab,                  | 
+        |b                       |        3
+--------|------------------------|-----------
+abc     |a, ab, abc,             |        6
+        |b, bc                   |
+        |c                       |
+--------|------------------------|-----------
+abcd    |a, ab, abc, abcd        |       10
+        |b, bc, bcd              |
+        |c, cd                   |
+        |d                       |
+--------|------------------------|-----------
+abcde   |a, ab, abc, abcd, abcde |       15
+        |b, bc, bcd, bcde        |
+        |c, cd, cde              |
+        |d, de                   |
+        |e                       |
+```
+
+The substrings make a Pascal Triangle. So the number of substrings is `n.(n+1)/2`, where `n` is the length of the string.
+
+The function is of `O(n^2)`. This is the time complexity.
