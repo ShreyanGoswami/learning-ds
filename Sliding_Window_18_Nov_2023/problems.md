@@ -76,6 +76,6 @@ abcde   |a, ab, abc, abcd, abcde |       15
         |e                       |
 ```
 
-The substrings make a Pascal Triangle. So the number of substrings is `n.(n+1)/2`, where `n` is the length of the string.
+So the number of substrings is `n.(n+1)/2`, where `n` is the length of the string.
 
 The function is of `O(n^2)`. This is the time complexity.
