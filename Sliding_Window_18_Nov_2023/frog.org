@@ -17,20 +17,6 @@ Write an efficient algorithm for the following assumptions:
 - Linear time complexity
 
 #+begin_src python
-def findLongestDistance(blocks):
-    n = len(blocks)
-    max_dist = 0
-    start, end = 0, 0
-
-    while end < n:
-        while end < n - 1 and blocks[end] <= blocks[end + 1]:
-            end += 1
-
-        max_dist = max(max_dist, end - start)
-        start = end
-        end += 1
-
-    return max_dist
 #+end_src
 
 * Quadratic time solution
