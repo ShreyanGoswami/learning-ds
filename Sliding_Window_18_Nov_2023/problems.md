@@ -15,7 +15,7 @@ Watch the following videos on time complexity analysis
 - [x] [1.8.2 Asymptotic Notations - Big Oh - Omega - Theta #2](https://www.youtube.com/watch?v=Nd0XDY-jVHs)
 
 More LC problems
-- [ ] https://leetcode.com/problems/min-stack/ 
+- [x] https://leetcode.com/problems/min-stack/ 
 - [ ] https://leetcode.com/problems/sort-colors/
 - [ ] https://leetcode.com/problems/decode-string/
 - [ ] https://leetcode.com/problems/car-fleet/

@@ -58,3 +58,5 @@ def substrings(s):
 
 ## 20231203
 
+- [x] https://leetcode.com/problems/sliding-window-maximum/
+- [ ] [Sliding Window Maximum Solution by Neetcode](https://www.youtube.com/watch?app=desktop&v=DfljaUwZsOk)

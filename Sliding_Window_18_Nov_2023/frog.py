@@ -12,3 +12,5 @@ def longest_distance(blocks):
     for i in range(n):
         max_distance = max(max_distance, right[i] - left[i] + 1)
     return max_distance
+
+print(longest_distance([5,4,3,2]))
