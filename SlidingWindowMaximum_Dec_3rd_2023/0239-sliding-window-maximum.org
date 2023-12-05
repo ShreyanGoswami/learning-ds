@@ -1,0 +1,53 @@
+#+title: 0239 Sliding Window Maximum
+#+link: https://leetcode.com/problems/sliding-window-maximum/
+
+#+begin_src go
+func maxSlidingWindow(nums []int, k int) []int {
+	output := make([]int, 0)
+	q := make([]int, 0)
+	start, end := 0, 0
+
+	for end < len(nums) {
+		for len(q) > 0 && nums[end] > nums[q[len(q)-1]] {
+			q = q[:len(q)-1]
+		}
+		q = append(q, end)
+
+		if start > q[0] { // i == q[0] + k
+			q = q[1:]
+		}
+
+		if end+1 >= k {
+			output = append(output, nums[q[0]])
+			start++
+		}
+
+		end++
+	}
+
+	return output
+}
+
+#+end_src
+
+#+begin_src python
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        output = []
+        q = collections.deque()
+        start, end = 0, 0
+
+        while end < len(nums):
+            while q and nums[q[-1]] < nums[end]:
+                q.pop()
+            q.append(end)
+
+            if start > q[0]:
+                q.popleft()
+
+            if end + 1 >= k:
+                output.append(nums[q[0]])
+                start += 1
+            end += 1
+        return output
+#+end_src
