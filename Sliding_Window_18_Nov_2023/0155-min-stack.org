@@ -1,0 +1,93 @@
+#+title: 0155 Min Stack
+#+link: https://leetcode.com/problems/min-stack/description/
+
+Using only one stack.
+#+begin_src go
+type MinStack struct {
+    s []int
+    min int
+}
+
+
+func Constructor() MinStack {
+    return MinStack {
+        s: []int{},
+        min: 1<<63-1,
+    }
+}
+
+
+func (this *MinStack) Push(val int)  {
+    this.s = append(this.s, val)
+
+    if val < this.min {
+        this.min = val
+    }
+}
+
+
+func (this *MinStack) Pop()  {
+    top := this.s[len(this.s)-1]
+    this.s = this.s[:len(this.s)-1]
+
+    if top == this.min && len(this.s) > 0 {
+        newMin := this.s[0]
+
+        for _, n := range this.s {
+            if n < newMin {
+                newMin = n
+            }
+        }
+
+        this.min = newMin
+    }
+    if len(this.s) == 0 {
+        this.min = 1<<63-1
+    }
+}
+
+
+func (this *MinStack) Top() int {
+    return this.s[len(this.s)-1]
+}
+
+
+func (this *MinStack) GetMin() int {
+    return this.min
+}
+
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Push(val);
+ * obj.Pop();
+ * param_3 := obj.Top();
+ * param_4 := obj.GetMin();
+ */
+#+end_src
+
+Using two stacks.
+#+begin_src python
+class MinStack:
+
+    def __init__(self):
+        self.s = []
+        self.minS = []
+
+    def push(self, val: int) -> None:
+        self.s.append(val)
+        if self.minS:
+            val = min(self.minS[-1], val)
+        self.minS.append(val)
+
+    def pop(self) -> None:
+        self.s.pop()
+        self.minS.pop()
+
+    def top(self) -> int:
+        return self.s[-1]
+
+    def getMin(self) -> int:
+        return self.minS[-1]
+#+end_src
