@@ -40,8 +40,8 @@ Videos on time complexity analysis
 
 More LC problems
 
-- [ ] frog problem
-- [ ] https://leetcode.com/problems/min-stack/ 
+- [x] frog problem
+- [x] https://leetcode.com/problems/min-stack/ 
 - [ ] https://leetcode.com/problems/sort-colors/
 - [ ] https://leetcode.com/problems/decode-string/
 - [ ] https://leetcode.com/problems/car-fleet/
@@ -59,4 +59,4 @@ def substrings(s):
 ## 20231203
 
 - [x] https://leetcode.com/problems/sliding-window-maximum/
-- [ ] [Sliding Window Maximum Solution by Neetcode](https://www.youtube.com/watch?app=desktop&v=DfljaUwZsOk)
+- [x] [Sliding Window Maximum Solution by Neetcode](https://www.youtube.com/watch?app=desktop&v=DfljaUwZsOk)
