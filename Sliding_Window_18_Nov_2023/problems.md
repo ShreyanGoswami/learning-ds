@@ -17,7 +17,7 @@ Watch the following videos on time complexity analysis
 More LC problems
 - [x] frog problem
 - [x] https://leetcode.com/problems/min-stack/ 
-- [ ] https://leetcode.com/problems/sort-colors/
+- [x] https://leetcode.com/problems/sort-colors/
 - [ ] https://leetcode.com/problems/decode-string/
 - [ ] https://leetcode.com/problems/car-fleet/
 - [ ] Optional hard problem - https://leetcode.com/problems/maximal-rectangle/
