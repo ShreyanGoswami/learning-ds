@@ -45,7 +45,7 @@ More LC problems
 - [x] https://leetcode.com/problems/sort-colors/
 - [ ] https://leetcode.com/problems/decode-string/
 - [ ] https://leetcode.com/problems/car-fleet/
-- [ ] Optional hard problem - https://leetcode.com/problems/maximal-rectangle/
+- [x] Optional hard problem - https://leetcode.com/problems/maximal-rectangle/
 
 What is the number of steps in the `substrings` function?
 

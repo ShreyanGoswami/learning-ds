@@ -45,18 +45,51 @@ func largestRectangleArea(heights []int) int {
 }
 #+end_src
 
+#+begin_src go
+func largestRectangleArea(heights []int) int {
+    s := []int{-1}
+    area := 0
+
+    for i, h := range append(heights, 0) {
+        for len(s) > 1 && heights[s[len(s)-1]] >= h {
+            H := heights[s[len(s)-1]]
+            s = s[:len(s)-1]
+            W := i - s[len(s)-1] - 1
+            area = max(area, H*W)
+        }
+        s = append(s, i)
+    }
+    return area
+}
+#+end_src
+
 #+begin_src python
 class Solution:
     def largestRectangleArea(self, heights):
         area = 0
-        stack = []
+        s = []
 
         for i, h in enumerate(heights + [0]):
-            while stack and heights[stack[-1]] >= h:
-                H = heights[stack.pop()]
+            while s and heights[s[-1]] >= h:
+                H = heights[s.pop()]
                 W = i
                 if len(s) > 0:
-                    W = i - stack[-1] - 1
+                    W = i - s[-1] - 1
+                area = max(area, H*W)
+            s.append(i)
+        return area
+#+end_src
+
+#+begin_src python
+class Solution:
+    def largestRectangleArea(self, heights):
+        area = 0
+        stack = [-1]
+
+        for i, h in enumerate(heights + [0]):
+            while len(stack) > 1 and heights[stack[-1]] >= h:
+                H = heights[stack.pop()]
+                W = i - stack[-1] - 1
                 area = max(area, H*W)
             stack.append(i)
         return area
