@@ -1,0 +1,119 @@
+#+title: 0085 Maximal Rectangle
+#+link: https://leetcode.com/problems/maximal-rectangle/description/
+#+tags: array dynamicprogramming stack matrix monotonocstack
+
+Given a rows x cols binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
+
+Example 1:
+#+begin_example
+Input: matrix =
+[["1","0","1","0","0"],
+ ["1","0","1","1","1"],
+ ["1","1","1","1","1"],
+ ["1","0","0","1","0"]]
+Output: 6
+Explanation: The maximal rectangle is shown in the above picture.
+#+end_example
+
+Example 2:
+#+begin_example
+Input: matrix = [["0"]]
+Output: 0
+#+end_example
+
+Example 3:
+#+begin_example
+Input: matrix = [["1"]]
+Output: 1
+#+end_example
+
+Constraints:
+#+begin_example
+rows == matrix.length
+cols == matrix[i].length
+1 <= row, cols <= 200
+matrix[i][j] is '0' or '1'.
+#+end_example
+
+* Increasing stack
+
+#+begin_src go
+func maximalRectangle(matrix [][]byte) int {
+	// O(rows)
+    n := len(matrix[0])
+    heights := make([]int, n+1)
+    var maxRect int
+
+    for _, row := range matrix {
+        for i := 0; i < n; i++ {
+            if row[i] == '1' {
+                heights[i] += 1
+            } else {
+                heights[i] = 0
+            }
+        }
+        maxRect = max(largestRectangleArea(heights), maxRect)
+    }
+    return maxRect
+}
+
+// O(n) where n is number of elements in heights, i.e,
+func largestRectangleArea(heights []int) int {
+    s := make([]int, 0)
+    var area int
+    for i, h := range heights {
+        for len(s) > 0 && heights[s[len(s)-1]] > h {
+            H := heights[s[len(s)-1]]
+            s = s[:len(s)-1]
+            W := i
+            if len(s) > 0 {
+                W = i - s[len(s)-1] - 1
+            }
+            area = max(area, H*W)
+        }
+        s = append(s, i)
+    }
+    return area
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def maximalRectangle(self, matrix: List[List[str]]) -> int:
+        n = len(matrix[0])
+        heights = [0] * (n + 1)
+        max_rect = 0
+
+        for row in matrix:
+            for i in range(n):
+                if row[i] == '1':
+                    heights[i] += 1
+                else:
+                    heights[i] = 0
+            max_rect = max(self.largestRectangleArea(heights), max_rect)
+        return max_rect
+
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        s = []
+        area = 0
+        for i, h in enumerate(heights):
+            while s and heights[s[-1]] > h:
+                H = heights[s.pop()]
+                W = i if not s else i - s[-1] - 1
+                area = max(area, H * W)
+            s.append(i)
+        return area
+#+end_src
+
+#+begin_example
+[["1", "0", "1", "0", "0"],
+ ["1", "0", "1", "1", "1"],
+ ["1", "1", "1", "1", "1"],
+ ["1", "0", "0", "1", "0"]]
+
+ [ 1 ,  0 ,  1 ,  0 ,  0 ,  0 ]
+ [ 1 ,  0 ,  1 ,  1 ,  1 ,  0 ]
+ [ 1 ,  1 ,  1 ,  1 ,  1 ,  0 ]
+ [ 1 ,  0 ,  0 ,  1 ,  0 ,  0 ]
+
+#+end_example
