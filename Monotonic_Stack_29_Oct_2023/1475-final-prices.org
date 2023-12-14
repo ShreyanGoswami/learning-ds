@@ -77,7 +77,6 @@ class Solution:
         return prices
 #+end_src
 
-The stack is monotonically increasing.
 #+begin_example
 prices = [8, 4, 6, 2, 3]
 
@@ -95,3 +94,6 @@ i,p   s              prices[s[-1]]>=p  s       j      prices           s
 
 #+end_example
 
+
+- The stack is monotonically increasing.
+- The element 2 at index 3 pops only the stack elements.
