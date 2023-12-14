@@ -46,6 +46,27 @@ func largestRectangleArea(heights []int) int {
 #+end_src
 
 #+begin_src go
+func largestRectangleArea(buildings []int) int {
+    s := make([]int, 0)
+    area := 0
+
+    for i, h := range append(buildings, 0) {
+        for len(s) > 0 && buildings[s[len(s)-1]] >= h {
+            H := buildings[s[len(s)-1]]
+            s = s[:len(s)-1]
+            W := i // when s is empty
+            if len(s) > 0 {
+                W = i - s[len(s)-1] - 1
+            }
+            area = max(area, H*W)
+        }
+        s = append(s, i)
+    }
+    return area
+}
+#+end_src
+
+#+begin_src go
 func largestRectangleArea(heights []int) int {
     s := []int{-1}
     area := 0

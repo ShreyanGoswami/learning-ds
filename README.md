@@ -1,22 +1,17 @@
 
-## 20231029
+# 20231210
 
-- [x] Implement monotonic stack (refer to monotonic_stack.py)
-- [x] https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/
-- [x] https://leetcode.com/problems/next-greater-element-i/
-- [x] https://leetcode.com/problems/daily-temperatures/
-- [x] https://leetcode.com/problems/remove-k-digits/
-- [x] https://leetcode.com/problems/next-greater-element-ii/
+- [x] https://leetcode.com/problems/permutation-in-string/
+- [ ] https://leetcode.com/problems/find-all-anagrams-in-a-string/
+- [x] https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
+- [ ] Optional - https://leetcode.com/problems/make-the-string-great/
 
-[Solution](https://www.youtube.com/watch?v=cTBiBSnjO3c) to daily temperatures by Neetcode - 
 
-## 20231111
+## 20231203
 
-- [x] Bucket Sort
-- [x] Sliding Window
-- [x] https://leetcode.com/problems/maximum-average-subarray-i/
-- [x] https://leetcode.com/problems/contains-duplicate-ii/
-- [x] (optional) https://leetcode.com/problems/largest-rectangle-in-histogram/
+- [x] https://leetcode.com/problems/sliding-window-maximum/
+- [x] [Sliding Window Maximum Solution by Neetcode](https://www.youtube.com/watch?app=desktop&v=DfljaUwZsOk)
+
 
 ## 20231118
 
@@ -56,7 +51,24 @@ def substrings(s):
             print(s[i, j+1])
 ```
 
-## 20231203
 
-- [x] https://leetcode.com/problems/sliding-window-maximum/
-- [x] [Sliding Window Maximum Solution by Neetcode](https://www.youtube.com/watch?app=desktop&v=DfljaUwZsOk)
+## 20231111
+
+- [x] Bucket Sort
+- [x] Sliding Window
+- [x] https://leetcode.com/problems/maximum-average-subarray-i/
+- [x] https://leetcode.com/problems/contains-duplicate-ii/
+- [x] (optional) https://leetcode.com/problems/largest-rectangle-in-histogram/
+
+
+## 20231029
+
+- [x] Implement monotonic stack (refer to monotonic_stack.py)
+- [x] https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/
+- [x] https://leetcode.com/problems/next-greater-element-i/
+- [x] https://leetcode.com/problems/daily-temperatures/
+- [x] https://leetcode.com/problems/remove-k-digits/
+- [x] https://leetcode.com/problems/next-greater-element-ii/
+
+[Solution](https://www.youtube.com/watch?v=cTBiBSnjO3c) to daily temperatures by Neetcode - 
+

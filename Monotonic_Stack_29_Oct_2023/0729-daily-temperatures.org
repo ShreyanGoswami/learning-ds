@@ -1,0 +1,82 @@
+#+title: 0729 Daily Temperatures
+#+link: https://leetcode.com/problems/daily-temperatures/
+#+tags: array stack monotonicstack
+
+
+Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
+
+Example 1:
+
+Input: temperatures = [73,74,75,71,69,72,76,73]
+Output: [1,1,4,2,1,1,0,0]
+Example 2:
+
+Input: temperatures = [30,40,50,60]
+Output: [1,1,1,0]
+Example 3:
+
+Input: temperatures = [30,60,90]
+Output: [1,1,0]
+
+
+Constraints:
+
+1 <= temperatures.length <= 105
+30 <= temperatures[i] <= 100
+
+* Decreasing Stack
+
+#+begin_src go
+func dailyTemperatures(T []int) []int {
+	ans := make([]int, len(T))
+	s := make([]int, 0)
+
+	for i, t := range T {
+		for len(s) > 0 && T[s[len(s)-1]] < t {
+			ans[s[len(s)-1]] = i - s[len(s)-1]
+			s = s[:len(s)-1]
+		}
+		s = append(s, i)
+	}
+
+	return ans
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def dailyTemperatures(self, T: List[int]) -> List[int]:
+        s = []
+        ans = [0] * len(T)
+
+        for i, t in enumerate(T):
+            while s and T[s[-1]] < t:
+                idx = s.pop()
+                ans[idx] = i - idx
+            s.append(i)
+
+        return ans
+#+end_src
+
+#+begin_example
+T = [73,74,75,71,69,72,76,73]
+
+i,t  T[s[-1]] < t  idx=s.pop()  i-idx   ans                 s
+0,73                                    [0,0,0,0,0,0,0,0]   [(0,73)]
+
+1,74 73 < 74       0            1-0=1   [1,0,0,0,0,0,0,0]   [(1,74)]
+
+2,75 74 < 75       1            2-1=1   [1,1,0,0,0,0,0,0]   [(2,75)]
+
+3,71 75 > 71                            [1,1,0,0,0,0,0,0]   [(2,75),(3,71)]
+
+4,69 71 > 69                            [1,1,0,0,0,0,0,0]   [(2,75),(3,71),(4,69)]
+
+5,72 69 < 72       4            5-4=1   [1,1,0,0,1,0,0,0]   [(2,75),(3,71)]
+     71 < 72       3            5-3=2   [1,1,0,2,1,0,0,0]   [(2,75),(5,72)]
+
+6,76 72 < 76       5            6-5=1   [1,1,0,2,1,1,0,0]   [(2,75)]
+     75 < 76       2            6-2=4   [1,1,4,2,1,1,0,0]   [(6,76)]
+
+7,73 76 > 73                            [1,1,4,2,1,1,0,0]   [(6,76),(7,73)]
+#+end_example
