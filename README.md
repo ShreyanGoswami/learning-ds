@@ -4,7 +4,7 @@
 - [x] https://leetcode.com/problems/permutation-in-string/
 - [ ] https://leetcode.com/problems/find-all-anagrams-in-a-string/
 - [x] https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
-- [ ] Optional - https://leetcode.com/problems/make-the-string-great/
+- [x] Optional - https://leetcode.com/problems/make-the-string-great/
 
 
 ## 20231203

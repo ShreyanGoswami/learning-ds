@@ -1,4 +1,5 @@
 #+title: 1047 Remove All Adjacent Duplicates In String
+#+alt_title: String Tetris
 #+link: https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/description/
 #+tags: string stack easy
 
