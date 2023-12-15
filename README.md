@@ -5,7 +5,7 @@
 - [ ] https://leetcode.com/problems/find-all-anagrams-in-a-string/
 - [x] https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
 - [x] Optional - https://leetcode.com/problems/make-the-string-great/
-
+- [x] Extra optional - https://leetcode.com/problems/maximum-binary-tree/
 
 ## 20231203
 
