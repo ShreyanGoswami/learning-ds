@@ -13,15 +13,14 @@ Return an array ans of length nums1.length such that ans[i] is the next greater 
 
 
 Example 1:
-
 Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
 Output: [-1,3,-1]
 Explanation: The next greater element for each value of nums1 is as follows:
 - 4 is underlined in nums2 = [1,3,4,2]. There is no next greater element, so the answer is -1.
 - 1 is underlined in nums2 = [1,3,4,2]. The next greater element is 3.
 - 2 is underlined in nums2 = [1,3,4,2]. There is no next greater element, so the answer is -1.
-Example 2:
 
+Example 2:
 Input: nums1 = [2,4], nums2 = [1,2,3,4]
 Output: [3,-1]
 Explanation: The next greater element for each value of nums1 is as follows:
@@ -45,29 +44,27 @@ Stack is decreasing.
 
 #+begin_src go
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
-	var next [1e4]int
-    s := make([]int, 0, len(nums2))
+    var nxtGreater [1e4]int
+    s := make([]int, 0)
 
     for _, v := range nums2 {
-        next[v] = -1
+        nxtGreater[v] = -1
 
-        for top := len(s)-1; top >= 0 && s[top] < v; top-- {
-            next[s[top]] = v
-            s = s[:top]
+        for len(s) > 0 && s[len(s)-1] < v {
+            nxtGreater[s[len(s)-1]] = v
+            s = s[:len(s)-1]
         }
 
         s = append(s, v)
     }
 
     for i, v := range nums1 {
-        nums1[i] = next[v]
+        nums1[i] = nxtGreater[v]
     }
 
     return nums1
 }
 #+end_src
-
-#+RESULTS:
 
 #+begin_src python
 class Solution:
