@@ -1,0 +1,45 @@
+#+title: 0003 Longest Substring Without Repeating Characters
+
+* Sliding Window
+
+#+begin_src go
+func lengthOfLongestSubstring(s string) int {
+    start, end, max_length := 0, 0, 0
+	var counter [128]int8
+
+    for end < len(s) {
+        counter[s[end]] += 1
+
+        for counter[s[end]] > 1 {
+            counter[s[start]] -= 1
+            start += 1
+        }
+
+        max_length = max(max_length, end - start + 1)
+        end += 1
+    }
+
+    return max_length
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        counter = [0] * 128
+        start, end, max_length = 0, 0, 0
+
+        while end < len(s):
+            counter[ord(s[end])] += 1
+
+            while counter[ord(s[end])] > 1:
+                counter[ord(s[start])] -= 1
+                start += 1
+
+            max_length = max(max_length, end - start + 1)
+            end += 1
+
+        return max_length
+#+end_src
+
+* Position

@@ -1,0 +1,105 @@
+#+title: 1358 All Three Characters
+
+* Classic sliding window
+
+#+begin_src go
+func numberOfSubstrings(s string) int {
+    var counter [3]int
+    start, end := 0, 0
+    substrings, hits := 0, 0
+
+	for end < len(s) {
+		counter[s[end]-'a']++
+
+		for start < end-1 && counter[0] > 0 && counter[1] > 0 && counter[2] > 0 {
+			hits++
+			counter[s[start]-'a']--
+			start++
+		}
+
+		substrings += hits
+		end++
+	}
+
+	return substrings
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        counter = [0, 0, 0]
+        start, end = 0, 0
+        substrings, hits = 0, 0
+
+        while end < len(s):
+            counter[ord(s[end]) - ord('a')] += 1
+
+            while start < end - 1 and counter[0] > 0 and counter[1] > 0 and counter[2] > 0:
+                hits += 1
+                counter[ord(s[start]) - ord('a')] -= 1
+                start += 1
+            substrings += hits
+            end += 1
+
+        return substrings
+#+end_src
+
+Taking ~abcabc~ as example input.
+#+begin_example
+abc                         <- one hit
+abca    bca                 <- two hits
+abcab   bcab    cab         <- three hits
+abcabc  bcabc   cabc    abc <- four hits
+                            ------------
+                            TOTAL 10 HITS
+#+end_example
+
+* Saving the last position
+
+#+begin_src go
+func numberOfSubstrings(s string) (substrings int) {
+    var last [3]int
+
+    for i := range s {
+        last[s[i] - 'a'] = i + 1
+
+        if last[0] > 0 && last[1] > 0 && last[2] > 0 {
+            substrings += min(last[0], last[1], last[2])
+        }
+    }
+
+    return substrings
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        last = [0, 0, 0]
+        substrings = 0
+
+        for i in range(len(s)):
+            last[ord(s[i]) - ord('a')] = i +
+
+            # The minimum position is equal to
+            # the number of substrings containing at least one
+	    # a, one b and one c. 
+            if last[0] > 0 and last[1] > 0 and last [2] > 0:
+                substrings += min(last[0], last[1], last[2])
+
+        return substrings
+#+end_src
+
+
+Again lets take ~abcabc~ as an example input.
+
+#+begin_example
+abcabc
+abc     <- position 1: 1 substring abc
+ bca    <- position 2: 2 substrings bca and abca
+  cab   <- position 3: 3 substrings cab, bcab and abcab
+   abc  <- position 4: 4 substrings abc, cabc, bcabc, abcabc
+------------------------------------------------------------------
+TOTAL substrings with at least one occurence of a, b and c = 10
+#+end_example

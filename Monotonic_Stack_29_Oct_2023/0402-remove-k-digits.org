@@ -1,0 +1,29 @@
+#+title: 0402 Remove K Digits
+#+link: https://leetcode.com/problems/remove-k-digits/
+
+#+begin_src go
+func removeKdigits(num string, k int) string {
+    s := make([]byte, 0)
+
+    for i := range num {
+        for k > 0 && len(s) > 0 && s[len(s)-1] > num[i] {
+            s = s[:len(s)-1]
+            k--
+        }
+        if len(s) > 0 || num[i] != '0' {
+            s = append(s, num[i])
+        }
+    }
+
+    for k > 0 && len(s) > 0 {
+        s = s[:len(s)-1]
+        k--
+    }
+
+    if len(s) == 0 {
+        return "0"
+    }
+
+    return string(s)
+}
+#+end_src

@@ -1,0 +1,124 @@
+#+title: 0075 Sort Colors
+#+link: https://leetcode.com/problems/sort-colors/description/
+#+tags: array twopointer sorting frequencysort bucketsort
+
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
+
+
+
+Example 1:
+
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+Example 2:
+
+Input: nums = [2,0,1]
+Output: [0,1,2]
+
+Constraints:
+n == nums.length
+1 <= n <= 300
+nums[i] is either 0, 1, or 2.
+
+
+Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+
+* Frequency Sort (Bucket Sort)
+
+#+begin_src go
+func sortColors(nums []int) {
+    var freq [3]int
+	// O(n)
+	for _, n := range nums {
+		freq[n]++
+	}
+
+	start := 0
+	// O(k) where k = 3
+	// Constant time, since O(3)
+	for color, count := range freq {
+		end := start + count
+        for i := start; i < end; i++ {
+            nums[i] = color
+        }
+        start = end
+	}
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        freq = [0, 0, 0]
+        # O(n)
+        for n in nums:
+            freq[n] += 1
+
+        start = 0
+        # O(k) where k is number of colors
+        # Constant time
+        for color, count in enumerate(freq):
+            end = start + count
+            nums[start:end] = [color] * (end - start)
+            start = end
+
+        return nums
+#+end_src
+
+This algorithm is known as counting sort.
+
+The time complexity is ~O(n+k)~, where
+n is the length of the input list and
+k is the range of the integers in the input list.
+
+Counting sort is a linear-time sorting algorithm that is efficient when the range of the input values is small compared to the length of the input list.
+
+#+begin_example
+nums = [2, 0, 2, 1, 1, 0]
+freq = [2, 2, 2]
+
+val, count, start, end, nums                 start
+0    2      0      2    [0, 0, 2, 1, 1, 0]   2
+1    2      2      4    [0, 0, 1, 1, 1, 0]   4
+2    2      4      6    [0, 0, 1, 1, 2, 2]
+#+end_example
+
+* Dutch National Flag Algorithm
+
+#+begin_src go
+func sortColors(nums []int) {
+    low, mid, high := 0, 0, len(nums)-1
+    for mid <= high {
+        if nums[mid] == 0 {
+            nums[low], nums[mid] = nums[mid], nums[low]
+            low++
+            mid++
+        } else if nums[mid] == 1 {
+            mid++
+        } else {
+            nums[mid], nums[high] = nums[high], nums[mid]
+            high--
+        }
+    }
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        low, mid, high = 0, 0, len(nums)-1
+        while mid <= high:
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
+#+end_src

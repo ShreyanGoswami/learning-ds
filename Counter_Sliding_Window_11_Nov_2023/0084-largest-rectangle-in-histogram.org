@@ -1,0 +1,117 @@
+#+title: 0084 Largest Rectangle In Histogram
+#+link: https://leetcode.com/problems/largest-rectangle-in-histogram/
+#+tags: array monotonicstack
+
+Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
+
+
+
+Example 1:
+Input: heights = [2,1,5,6,2,3]
+Output: 10
+Explanation: The above is a histogram where width of each bar is 1.
+The largest rectangle is shown in the red area, which has an area = 10 units.
+
+Example 2:
+Input: heights = [2,4]
+Output: 4
+
+
+Constraints:
+
+1 <= heights.length <= 105
+0 <= heights[i] <= 104
+
+* Increasing stack
+
+#+begin_src go
+func largestRectangleArea(heights []int) int {
+    s := make([]int, 0)
+    area := 0
+
+    for i, h := range append(heights, 0) {
+        for len(s) > 0 && heights[s[len(s)-1]] >= h {
+            H := heights[s[len(s)-1]]
+            s = s[:len(s)-1]
+            W := i // when s is empty
+            if len(s) > 0 {
+                W = i - s[len(s)-1] - 1
+            }
+            area = max(area, H*W)
+        }
+        s = append(s, i)
+    }
+    return area
+}
+#+end_src
+
+#+begin_src go
+func largestRectangleArea(buildings []int) int {
+    s := make([]int, 0)
+    area := 0
+
+    for i, h := range append(buildings, 0) {
+        for len(s) > 0 && buildings[s[len(s)-1]] >= h {
+            H := buildings[s[len(s)-1]]
+            s = s[:len(s)-1]
+            W := i // when s is empty
+            if len(s) > 0 {
+                W = i - s[len(s)-1] - 1
+            }
+            area = max(area, H*W)
+        }
+        s = append(s, i)
+    }
+    return area
+}
+#+end_src
+
+#+begin_src go
+func largestRectangleArea(heights []int) int {
+    s := []int{-1}
+    area := 0
+
+    for i, h := range append(heights, 0) {
+        for len(s) > 1 && heights[s[len(s)-1]] >= h {
+            H := heights[s[len(s)-1]]
+            s = s[:len(s)-1]
+            W := i - s[len(s)-1] - 1
+            area = max(area, H*W)
+        }
+        s = append(s, i)
+    }
+    return area
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def largestRectangleArea(self, heights):
+        area = 0
+        s = []
+
+        for i, h in enumerate(heights + [0]):
+            while s and heights[s[-1]] >= h:
+                H = heights[s.pop()]
+                W = i
+                if len(s) > 0:
+                    W = i - s[-1] - 1
+                area = max(area, H*W)
+            s.append(i)
+        return area
+#+end_src
+
+#+begin_src python
+class Solution:
+    def largestRectangleArea(self, heights):
+        area = 0
+        stack = [-1]
+
+        for i, h in enumerate(heights + [0]):
+            while len(stack) > 1 and heights[stack[-1]] >= h:
+                H = heights[stack.pop()]
+                W = i - stack[-1] - 1
+                area = max(area, H*W)
+            stack.append(i)
+        return area
+#+end_src

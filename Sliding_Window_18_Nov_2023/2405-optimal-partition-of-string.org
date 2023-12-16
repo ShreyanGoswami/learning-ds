@@ -1,0 +1,79 @@
+#+title: 2405 Optimal Partition Of String
+#+author: Arijit Gogoi
+
+* Sliding Window
+
+#+begin_src go
+func partitionString(s string) int {
+    var lastPosition [26]int
+    start, partitions, end := 0, 0, 0
+
+    for end < len(s) {
+        if lastPosition[int(s[end])-'a'] >= start {
+            partitions++
+            start = end + 1
+        }
+
+        lastPosition[int(s[end])-'a'] = end + 1
+        end++
+    }
+    return partitions
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def partitionString(self, s: str) -> int:
+        last_position = [0] * 26
+        start, partitions, end = 0, 0, 0
+
+        while end < len(s):
+            if last_position[ord(s[end]) - ord('a')] >= start:
+                partitions += 1
+                start = end + 1
+
+            last_position[ord(s[end]) - ord('a')] = end + 1
+            end += 1
+
+        return partitions
+
+#+end_src
+
+The ~last_position~ array stores the last position of the letter in the string ~s~ where it occured last. Zero means it has not occured yet. And since zero is taken, we have to start counting from 1. Hence, the first letter of the string ~s~ occurs in position ~1~. This is also why ~end + 1~ is assigned to the last occurence of the letter.
+
+If the ~last_position~ of the letter is after the ~start~ of the partition, then increment ~partitions~ and assign the position ~end + 1~ to the ~start~ of the new partition.
+
+* Using a map
+
+#+begin_src go
+func partitionString(s string) int {
+	partition := make(map[rune]bool)
+	unique := 1
+	for _, r := range s {
+		if partition[r] {
+			unique++
+			clear(partition)
+		}
+		partition[r] = true
+	}
+	return unique
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def partitionString(self, s: str) -> int:
+        p = set()
+        partitions = 1
+        for c in s:
+            if c in p:
+                partitions += 1
+                p.clear()
+            p.add(c)
+        return partitions
+#+end_src
+
+This approach is easier to understand but also slower since hash maps need to call the hash function.
+
+- https://youtu.be/0M_kIqhwbFo?si=w_oZTg87T281ITW7
+- https://youtu.be/BRO7mVIFt08?si=l2HkAx_d9zqc2pI5

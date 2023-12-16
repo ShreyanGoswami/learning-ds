@@ -1,0 +1,150 @@
+#+title: 0242 Valid Anagram
+#+link: https://leetcode.com/problems/valid-anagram/
+#+tags: hashtable string sorting
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+Output: true
+Example 2:
+
+Input: s = "rat", t = "car"
+Output: false
+
+
+Constraints:
+
+1 <= s.length, t.length <= 5 * 104
+s and t consist of lowercase English letters.
+
+
+Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+
+* Hash Table
+Linear TC.
+
+#+begin_src go
+func isAnagram(s string, t string) bool {
+    chars := make(map[rune]int, len(s))
+    for _, r := range s {
+        chars[r]++
+    }
+    for _, r := range t {
+        chars[r]--
+    }
+    for _, r := range chars {
+        if r != 0 {
+            return false
+        }
+    }
+    return true
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        chars = {}
+        for c in s:
+            chars[c] = chars.get(c, 0) + 1
+        for c in t:
+            chars[c] = chars.get(c, 0) - 1
+
+        for count in chars.values():
+            if count != 0:
+                return False
+
+        return True
+#+end_src
+
+* Frequency Counter
+Linear TC.
+
+#+begin_src go
+func isAnagram(s string, t string) bool {
+    if len(s) != len(t) {
+        return false
+    }
+
+    var freq [26]int
+    for i := 0; i < len(s); i++ {
+        freq[s[i] - 'a']++
+        freq[t[i] - 'a']--
+    }
+
+    for _, count := range freq {
+        if count != 0 {
+            return false
+        }
+    }
+    return true
+}
+#+end_src
+
+#+begin_src python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+
+        chars = [0] * 26
+        for i in range(len(s)):
+            chars[ord(s[i]) - ord('a')] += 1
+            chars[ord(t[i]) - ord('a')] -= 1
+
+        for r in chars:
+            if r != 0:
+                return False
+
+        return True
+#+end_src
+
+#+begin_src rust
+pub fn is_anagram(s: &str, t: &str) -> bool {
+    if s.len() != t.len() {
+        return false;
+    }
+
+    let mut chars = [0; 26];
+    for (i, c) in s.chars().enumerate() {
+        chars[c as usize - 'a' as usize] += 1;
+        chars[t.chars().nth(i).unwrap() as usize - 'a' as usize] -= 1;
+    }
+
+    for r in chars.iter() {
+        if *r != 0 {
+            return false;
+        }
+    }
+
+    true
+}
+#+end_src
+
+#+begin_src zig
+const std = @import("std");
+
+pub fn isAnagram(s: []const u8, t: []const u8) bool {
+    if (s.len != t.len) {
+        return false;
+    }
+
+    var chars = [_]u8{0};
+    for (s) |c, i| {
+        chars[c - 'a'] += 1;
+        chars[t[i] - 'a'] -= 1;
+    }
+
+    for (chars) |r| {
+        if (r != 0) return false;
+    }
+
+    return true;
+}
+#+end_src
