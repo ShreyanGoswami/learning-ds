@@ -6,4 +6,3 @@ Solve the following LC problems:
 - [x] Optional - https://leetcode.com/problems/make-the-string-great/
 - [x] Extra optional - https://leetcode.com/problems/maximum-binary-tree/
 - [x] Extra optional - https://leetcode.com/problems/online-stock-span/description/
-
