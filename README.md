@@ -10,13 +10,6 @@
 - [x] https://leetcode.com/problems/first-letter-to-appear-twice/
 - [x] https://leetcode.com/problems/ransom-note/
 - [x] https://leetcode.com/problems/group-anagrams/
-=======
-- [ ] https://leetcode.com/problems/two-sum/
-- [ ] https://leetcode.com/problems/intersection-of-two-arrays/
-- [ ] https://leetcode.com/problems/first-unique-character-in-a-string/
-- [ ] https://leetcode.com/problems/ransom-note/
-- [ ] https://leetcode.com/problems/group-anagrams/
->>>>>>> ccf4c57 (paperwork)
 
 ## 20231210
 
