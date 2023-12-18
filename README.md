@@ -1,6 +1,13 @@
 
 ## 20231216
 
+- [x] https://leetcode.com/problems/majority-element/
+- [ ] https://leetcode.com/problems/two-sum/
+- [ ] https://leetcode.com/problems/intersection-of-two-arrays/
+- [ ] https://leetcode.com/problems/first-unique-character-in-a-string/
+- [ ] https://leetcode.com/problems/ransom-note/
+- [ ] https://leetcode.com/problems/group-anagrams/
+
 ## 20231210
 
 - [x] https://leetcode.com/problems/valid-anagram/
