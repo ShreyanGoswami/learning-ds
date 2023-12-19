@@ -69,18 +69,18 @@ class Solution:
 #+end_src
 
 Time Complexity: Linear ~O(n + m)~.
-Building a counter from nums1 takes ~O(n)~ time, where n is the length of nums1, as each element is processed once.
+Building a counter from nums1 takes ~O(n)~ time, where n is the length of nums1.
 
-Iterating over nums2 and updating the counter takes ~O(m)~ time, where m is the length of nums2, as each element is processed once.
+Iterating over nums2 and updating the counter takes ~O(m)~ time, where m is the length of nums2.
 
 Hence, the overall time complexity is ~O(n + m)~, where n is the length of nums1 and m is the length of nums2.
 
 Space Complexity: Linear ~O(n)~, n is the number of unique elements of nums1.
 The space complexity of the code depends on the space used by the counter data structure.
 
-The counter keeps track of elements from nums1, therefore it uses ~O(n)~ space, where n is the unique number of elements in nums1.
+The counter keeps track of elements from nums1, therefore it uses ~O(n)~ space, where n is the number of unique elements in nums1.
 
-The ~intersection~ list contains the intersected elements. In the worst case, if all elements in nums2 are present in nums1, it can take ~O(min(n, m))~ space, where n is the length of nums1 and m is the length of nums2.
+In the worst case, if all elements in nums2 are present in nums1, it can take ~O(min(n, m))~ space, where n is the length of nums1 and m is the length of nums2.
 
 Taking both into account, the space complexity is ~O(n + min(n, m))~ which simplifies to ~O(n)~ as min(n, m) is bounded by n.
 Overall, the space complexity of the code is ~O(n)~ where n represents the number of unique elements in nums1.
