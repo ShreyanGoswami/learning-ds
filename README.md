@@ -5,7 +5,7 @@
 - [x] https://leetcode.com/problems/two-sum/
 - [x] https://leetcode.com/problems/intersection-of-two-arrays/
 - [x] https://leetcode.com/problems/intersection-of-two-arrays-ii/
-- [ ] https://leetcode.com/problems/first-unique-character-in-a-string/
+- [x] https://leetcode.com/problems/first-unique-character-in-a-string/
 - [ ] https://leetcode.com/problems/ransom-note/
 - [ ] https://leetcode.com/problems/group-anagrams/
 
