@@ -6,8 +6,10 @@
 - [x] https://leetcode.com/problems/intersection-of-two-arrays/
 - [x] https://leetcode.com/problems/intersection-of-two-arrays-ii/
 - [x] https://leetcode.com/problems/first-unique-character-in-a-string/
-- [ ] https://leetcode.com/problems/ransom-note/
-- [ ] https://leetcode.com/problems/group-anagrams/
+- [x] https://leetcode.com/problems/sort-characters-by-frequency/
+- [x] https://leetcode.com/problems/first-letter-to-appear-twice/
+- [x] https://leetcode.com/problems/ransom-note/
+- [x] https://leetcode.com/problems/group-anagrams/
 
 ## 20231210
 
