@@ -29,25 +29,16 @@ SC: O(1)
 func firstUniqChar(s string) int {
 	var freq [26]int
     for _, c := range s {
-<<<<<<< HEAD
-		freq[c-'a'] += 1
+			freq[c-'a'] += 1
 	}
     for i, c := range s {
-		if freq[c-'a'] == 1 {
-=======
-		freq[int(c)-'a'] += 1
-	}
-
-    for i, c := range s {
-		if freq[int(c)-'a'] == 1 {
->>>>>>> cdfee12 (solve 387)
-			return i
+			if freq[c-'a'] == 1 {
+				return i
 		}
 	}
 	return -1
 }
 #+end_src
-<<<<<<< HEAD
 
 #+begin_src python
 class Solution:
@@ -58,5 +49,3 @@ class Solution:
                 return i
         return -1
 #+end_src
-=======
->>>>>>> cdfee12 (solve 387)
