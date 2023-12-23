@@ -1,5 +1,17 @@
 
-# 20231210
+## 20231216
+
+- [x] https://leetcode.com/problems/majority-element/
+- [x] https://leetcode.com/problems/two-sum/
+- [x] https://leetcode.com/problems/intersection-of-two-arrays/
+- [x] https://leetcode.com/problems/intersection-of-two-arrays-ii/
+- [x] https://leetcode.com/problems/first-unique-character-in-a-string/
+- [x] https://leetcode.com/problems/sort-characters-by-frequency/
+- [x] https://leetcode.com/problems/first-letter-to-appear-twice/
+- [x] https://leetcode.com/problems/ransom-note/
+- [x] https://leetcode.com/problems/group-anagrams/
+
+## 20231210
 
 - [x] https://leetcode.com/problems/valid-anagram/
 - [x] https://leetcode.com/problems/permutation-in-string/
