@@ -1,0 +1,67 @@
+#+title: 0383 Ransom Note
+#+link: https://leetcode.com/problems/ransom-note/
+#+tags: hashtable string counting
+
+Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+
+Each letter in magazine can only be used once in ransomNote.
+
+Example 1:
+Input: ransomNote = "a", magazine = "b"
+Output: false
+
+Example 2:
+Input: ransomNote = "aa", magazine = "ab"
+Output: false
+
+Example 3:
+Input: ransomNote = "aa", magazine = "aab"
+Output: true
+
+Constraints:
+1 <= ransomNote.length, magazine.length <= 105
+ransomNote and magazine consist of lowercase English letters.
+
+
+* Frequency Count
+
+#+begin_src go
+func canConstruct(ransomNote string, magazine string) bool {
+    var freq [26]int
+    for _, r := range magazine {
+        freq[r-'a'] += 1
+    }
+    for _, r := range ransomNote {
+        freq[r-'a'] -= 1
+    }
+	// O(1) ST complexity
+    for _, count := range freq {
+        if count < 0 {
+            return false
+        }
+    }
+    return true
+}
+#+end_src
+TC:
+- O(n + m) + O(1)
+
+SC:
+- O(1)
+
+#+begin_src python
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        rn = Counter(ransomNote)
+        m = Counter(magazine)
+        return rn & m == rn
+#+end_src
+
+TC:
+- O(n) TC for counting the characters of ~ransomNote~.
+- O(m) TC for counting the characters of ~magazine~.
+- The ~&~ operation between two ~Counter~ objects has a time complexity that is proportional to the number of distinct elements (in the worst case, number of all distinct characters in both strings). Since the input strings consist of lowercase English letters, the maximum number of distinct characters is limited to 26 (the number of letters in the English alphabet). Therefore, this operation is O(1) in the context of this constraint. It does not depend on the size of the input strings.
+- Overall TC is ~O(n + m)~.
+
+SC:
+- O(1) space complexity since the ~Counter~ objects ~rn~ and ~m~ are bounded by 26 and will not grow.
